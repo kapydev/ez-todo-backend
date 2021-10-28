@@ -26,6 +26,8 @@ app.start({
     orm: {
         type: "better-sqlite3",
         database: "db.sqlite",
-        synchronize: true
+        // database: ":memory:",
+        synchronize: true,
+        // logging: true
     }
 })

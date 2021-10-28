@@ -1,0 +1,110 @@
+Description: Simple WebApp Stack for EzTodo
+
+Parameters:
+  DBInstanceIdentifier:
+    Type: String
+    Default: "backend-db"
+  DBUsername:
+    NoEcho: "true"
+    Description: Username for Postgresql DB Access
+    Type: String
+    MinLength: "1"
+    MaxLength: "16"
+    AllowedPattern: "[a-zA-Z][a-zA-Z0-9]*"
+    ConstraintDescription: Must begin with letter and contain only alphanumeric characters
+    Default: "postgres"
+  DBPassword:
+    NoEcho: "true"
+    Description: Password for Postgresql DB Access
+    Type: String
+    MinLength: "8"
+    MaxLength: "41"
+    AllowedPattern: "[a-zA-Z0-9]*"
+    ConstraintDescription: Must contain only alphanumeric characters
+
+Resources:
+  BackendInstance:
+    Type: AWS::EC2::Instance
+    Metadata:
+      AWS::CloudFormation::Init:
+        config:
+          packages:
+            packages:
+              node: []
+          
+    Properties:
+      ImageId: ami-0d058fe428540cd89
+      InstanceType: t2.nano
+      KeyName: ez-todo-key
+      SecurityGroupIds:
+        - !Ref BackendSecurityGroup
+
+  BackendEIP:
+    Type: AWS::EC2::EIP
+    Properties:
+      Domain: vpc
+      InstanceId: !Ref BackendInstance
+      Tags:
+        - Key: Name
+          Value: !Join ["-", [backend-eip, dev]]
+
+  BackendDB:
+    Type: AWS::RDS::DBInstance
+    Properties:
+      AllocatedStorage: "5"
+      DBInstanceIdentifier: !Ref DBInstanceIdentifier
+      VPCSecurityGroups:
+        - !GetAtt DBEC2SecurityGroup.GroupId
+      DBInstanceClass: db.t2.micro
+      Engine: postgres
+      EngineVersion: 12
+      MasterUsername: !Ref DBUsername
+      MasterUserPassword: !Ref DBPassword
+    DeletionPolicy: Snapshot
+    UpdateReplacePolicy: Snapshot
+
+  BackendSecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupName: !Join ["-", [backend-security-group, dev]]
+      GroupDescription: "Allow HTTP/HTTPS and SSH inbound and outbound traffic"
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: 80
+          ToPort: 80
+          CidrIp: 0.0.0.0/0
+        - IpProtocol: tcp
+          FromPort: 443
+          ToPort: 443
+          CidrIp: 0.0.0.0/0
+          #TODO: Tighten ssh security rules
+        - IpProtocol: tcp
+          FromPort: 22
+          ToPort: 22
+          CidrIp: 0.0.0.0/0
+
+  DBEC2SecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupName: !Join ["-", [backend-db-security-group]]
+      GroupDescription: Allow connection between postgres and ec2
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: 5432
+          ToPort: 5432
+          SourceSecurityGroupName:
+            Ref: BackendSecurityGroup
+      
+
+Outputs:
+  BackendURL:
+    Value: !Sub http://${BackendEIP}
+    Description: Backend URL
+
+  BackendServerPublicDNS:
+    Description: "Public DNS of EC2 instance"
+    Value: !GetAtt BackendInstance.PublicDnsName
+
+  BackendDBEndpoint:
+    Description: "Connection Endpoint for DB"
+    Value: !GetAtt BackendDB.Endpoint.Address

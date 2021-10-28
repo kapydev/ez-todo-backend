@@ -7,7 +7,10 @@ export enum PriorityEnum {
 }
 
 export const todo = new EzModel("Todo", {
-    summary: Type.VARCHAR,
+    summary: {
+        type: Type.VARCHAR,
+        default: ""
+    },
     desc: {
         type: Type.VARCHAR,
         default: ""
@@ -18,23 +21,23 @@ export const todo = new EzModel("Todo", {
         default: PriorityEnum.MED
     },
     creator: {
-        type: Type.ONE_TO_ONE,
+        type: Type.MANY_TO_ONE,
         target: "User",
-        eager:true,
-        joinColumn:true
+        joinColumn: true
     },
     creatorId: Type.INT,
+    
     assignees: {
         type: Type.MANY_TO_MANY,
         target: "User",
         inverseSide: "assignedTodos",
-        eager: true,
-        joinTable:true
+        joinTable: true
     },
     workspace: {
         type: Type.MANY_TO_ONE,
         target: "Workspace",
-        eager: true
+        eager: true,
+        inverseSide: "todos"
     },
     workspaceId: Type.INT,
     deadline: {

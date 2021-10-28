@@ -81,3 +81,4 @@ db.sqlite-shm
 db.sqlite-wal
 
 secret-key
+/aws/scripts
