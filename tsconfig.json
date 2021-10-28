@@ -1,5 +1,7 @@
 {
   "compilerOptions": {
+    "rootDir": "src",
+    "outDir": "dist",
     "baseUrl": ".",
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,

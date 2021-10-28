@@ -82,3 +82,5 @@ db.sqlite-wal
 
 secret-key
 /aws/scripts
+
+dist
