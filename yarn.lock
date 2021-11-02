@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@ezbackend/auth@^0.0.126":
-  version "0.0.126"
-  resolved "https://registry.yarnpkg.com/@ezbackend/auth/-/auth-0.0.126.tgz#7c0288dd792bd1771d884f3bd75c676a913741ea"
-  integrity sha512-a5AWj46gq8Z9NeOTGB/SbUfSArzRGsnbDw2Oez66Cuo24gsOUqQqHR+sDh4x/uT2tX5iP/ynG9r5cgvR7vOoiA==
+"@ezbackend/auth@^0.0.134":
+  version "0.0.134"
+  resolved "https://registry.yarnpkg.com/@ezbackend/auth/-/auth-0.0.134.tgz#3984fd15b6389a1841519c28d97a166690a9fedd"
+  integrity sha512-CFc0f3/MlOawvF4zTrfILd4Oc3o+h7oKfv2KUBuB9DrC6y1dj55LbtDoIGOXySdU/4hk4CrVtBXPwvHDy6hHDQ==
   dependencies:
     "@types/eth-sig-util" "^2.1.1"
     "@types/ethereumjs-util" "^6.1.0"
@@ -21,10 +21,10 @@
     typescript "^4.3.5"
     web3-token "^0.1.30"
 
-"@ezbackend/common@0.0.126":
-  version "0.0.126"
-  resolved "https://registry.yarnpkg.com/@ezbackend/common/-/common-0.0.126.tgz#f9218c7f3414b527c8d975c550e3356c217cb85a"
-  integrity sha512-o5BGg1sswGro4hAch8O33PRwT8glhNEOdTSSSg3pB/s3jmwsQqCtWoUB1dXd/X9mfbEDaWn2MIj8z14lUYcZtQ==
+"@ezbackend/common@0.0.134":
+  version "0.0.134"
+  resolved "https://registry.yarnpkg.com/@ezbackend/common/-/common-0.0.134.tgz#bc2bb6a1d9e559c928f2445c377ea7615bbeeeff"
+  integrity sha512-KDTLaqrAUSK+ECsu0tmZtENQPXjliTMXucKpBvV+lUSZyCaCXNp7mELeyoWuoeqb91VI67A67+HajWcpYlRqtA==
   dependencies:
     "@hapi/boom" "^9.1.4"
     better-sqlite3 "^7.4.3"
@@ -34,39 +34,39 @@
     pino-pretty "^5.1.2"
     typeorm "^0.2.37"
 
-"@ezbackend/core@0.0.126":
-  version "0.0.126"
-  resolved "https://registry.yarnpkg.com/@ezbackend/core/-/core-0.0.126.tgz#d27717456ce683e16891d294cabc4a4645e72ecb"
-  integrity sha512-PaVlEkYRDfv4/wqzPfmHeuUHx0cJItB3ZZVmp4kUUgWu/59ib4ckfC2s8BhN4FCqU+WhCpqZzwaclpNh6Ffs3Q==
+"@ezbackend/core@0.0.134":
+  version "0.0.134"
+  resolved "https://registry.yarnpkg.com/@ezbackend/core/-/core-0.0.134.tgz#922731f6c264e37071e68daa5734e627e3218c7d"
+  integrity sha512-twum9/sgKFdXmSFhkQ2xpgW/Bpvewrd1A06/lQdLBBpD5XksNrYGmIOofhCceSW95OOjX2iYYfJtXx6izkGufg==
   dependencies:
     avvio "^7.2.2"
 
-"@ezbackend/cors@0.0.126":
-  version "0.0.126"
-  resolved "https://registry.yarnpkg.com/@ezbackend/cors/-/cors-0.0.126.tgz#0e5b8b46a2ffff111da09d9f63ae2eeccf246c6d"
-  integrity sha512-04jy9oWm/i2S3QtSQRgY5F6/VlSu9qDLLpza9oWu7P70S5T91NSVAlgZ045WB+Y3wjKNZuJg76y5fa0dLs3zzw==
+"@ezbackend/cors@0.0.134":
+  version "0.0.134"
+  resolved "https://registry.yarnpkg.com/@ezbackend/cors/-/cors-0.0.134.tgz#62ab0d5b0148ec5e26d0a2a909fb8567b7d22544"
+  integrity sha512-o8OVVV6miV0lLkW/0OlmcbqEgK54lMjiGVgWOxTcP6Bpa1ossqkEH/p9uLBYlWJKG6jdBsew4tFikpX2ifURtA==
   dependencies:
     fastify-cors "^6.0.2"
 
-"@ezbackend/db-ui@0.0.126":
-  version "0.0.126"
-  resolved "https://registry.yarnpkg.com/@ezbackend/db-ui/-/db-ui-0.0.126.tgz#c420d15911f09be621cd326bdb7c962a7e94849d"
-  integrity sha512-a89QqHXh4c6zfPZsq2k9TzTbz4bKWpBX3OWyYH99IlTGpN1uaiwhA4qSEM3vCIcMydMc9PntYgI55rszuYMmvA==
+"@ezbackend/db-ui@0.0.134":
+  version "0.0.134"
+  resolved "https://registry.yarnpkg.com/@ezbackend/db-ui/-/db-ui-0.0.134.tgz#bd2af904c1be3281b204c99f600778ce2b97d8cd"
+  integrity sha512-eVNg+9PfF5P8yD3A383poFGiVpnwwlA0PX9qL+wC7/M/KJOxnUaGzb8dfPiIhrpkJiWdZhpdi1xCQf2kDguZNw==
   dependencies:
     fastify-static "^4.2.4"
 
-"@ezbackend/openapi@0.0.126":
-  version "0.0.126"
-  resolved "https://registry.yarnpkg.com/@ezbackend/openapi/-/openapi-0.0.126.tgz#874e40bad57b2906ef57b12fb483f59b4a2c7b07"
-  integrity sha512-2z67KffF9OOxRLwwS9M0pEOkPPKD4NYx7KHfOENYIN58yEMXFdE8Tu/le552UT2YTZtUpwJDrPVvtZAU8TruHw==
+"@ezbackend/openapi@0.0.134":
+  version "0.0.134"
+  resolved "https://registry.yarnpkg.com/@ezbackend/openapi/-/openapi-0.0.134.tgz#ea7fd8c0b986421aa00c4347aac4691e906f1ca8"
+  integrity sha512-cheuSq5FDIPTgPqNegafdFakOBY1vEfuwucY2YlPJG3NaHceVsrIZX8JVOgvXxtZD9gBHj6upwxhm+IAnka1Wg==
   dependencies:
     fastify-swagger "^4.12.1"
     open "^8.2.1"
 
-"@ezbackend/utils@0.0.126":
-  version "0.0.126"
-  resolved "https://registry.yarnpkg.com/@ezbackend/utils/-/utils-0.0.126.tgz#19fc56ae364d719521b87a512e8e228050cae876"
-  integrity sha512-MA99A96w8FWUacDVdCmzvoXv+sNJIIY7Q68gRznCtrEQNJ5eG0BRkuj86vaHgedV2vM0VSRPnF5D4YZJanb+yQ==
+"@ezbackend/utils@0.0.134":
+  version "0.0.134"
+  resolved "https://registry.yarnpkg.com/@ezbackend/utils/-/utils-0.0.134.tgz#5a4e2226e6019c75db5c3f4d99adfb5f6c41de23"
+  integrity sha512-1Vj1afAoNg2o/zsm3YD5AgJGYk96FydJ2VB9IiWWpcrq/EDAPOeYC8rT5PR5Tlj49vatdSayyDgCJThFJiAjUQ==
   dependencies:
     pretty-error "^3.0.4"
 

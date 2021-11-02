@@ -13,15 +13,15 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@ezbackend/auth": "^0.0.132",
-    "@ezbackend/common": "0.0.132",
-    "@ezbackend/core": "0.0.132",
-    "@ezbackend/cors": "0.0.132",
-    "@ezbackend/utils": "0.0.132"
+    "@ezbackend/auth": "^0.0.134",
+    "@ezbackend/common": "0.0.134",
+    "@ezbackend/core": "0.0.134",
+    "@ezbackend/cors": "0.0.134",
+    "@ezbackend/utils": "0.0.134",
+    "@ezbackend/db-ui": "0.0.134",
+    "@ezbackend/openapi": "0.0.134"
   },
   "devDependencies": {
-    "@ezbackend/db-ui": "0.0.132",
-    "@ezbackend/openapi": "0.0.132",
     "@types/node": "^16.11.4",
     "sqlite3": "^5.0.2",
     "ts-node-dev": "^1.1.8",
