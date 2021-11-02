@@ -35,6 +35,7 @@ if (process.env.DATABASE_URL) {
 }
 
 app.start({
+    address: "0.0.0.0",
     auth: {
         successRedirectURL: "http://localhost:5000"
     },
