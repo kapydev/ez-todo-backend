@@ -36,7 +36,8 @@ if (process.env.DATABASE_URL) {
 }
 
 if (process.env.NODE_ENV === "production") {
-    successRedirect = "https://ez-todo.vercel.app/"
+    // successRedirect = "https://ez-todo.vercel.app/"
+    successRedirect = "http://localhost:5000"
 } else {
     successRedirect = "http://localhost:5000"
 }
