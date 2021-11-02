@@ -20,6 +20,7 @@ app.addApp(todo, { prefix: 'todo' })
 app.addApp(workspace, { prefix: 'workspace' })
 
 let ormConfig = undefined
+let successRedirect = undefined
 
 if (process.env.DATABASE_URL) {
     ormConfig = {
@@ -32,6 +33,12 @@ if (process.env.DATABASE_URL) {
             }
         },
     }
+}
+
+if (process.env.NODE_ENV === "production") {
+    successRedirect = "https://ez-todo.vercel.app/"
+} else {
+    successRedirect = "http://localhost:5000"
 }
 
 app.start({
