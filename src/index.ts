@@ -1,4 +1,4 @@
-import { EzBackend, EzModel, Type } from '@ezbackend/common'
+import { EzBackend, EzBackendOpts } from '@ezbackend/common'
 import { EzOpenAPI } from "@ezbackend/openapi";
 import { EzDbUI } from "@ezbackend/db-ui";
 import { EzCors } from "@ezbackend/cors";
@@ -15,19 +15,34 @@ app.addApp(new EzCors())
 app.addApp(new EzAuth())
 //---Plugins---
 
-app.addApp(user, {prefix: 'user'})
-app.addApp(todo, {prefix: 'todo'})
-app.addApp(workspace, {prefix: 'workspace'})
+app.addApp(user, { prefix: 'user' })
+app.addApp(todo, { prefix: 'todo' })
+app.addApp(workspace, { prefix: 'workspace' })
+
+let ormConfig = undefined
+
+if (process.env.DATABASE_URL) {
+    ormConfig = {
+        type: "postgres",
+        url: process.env.DATABASE_URL,
+        synchronize: true,
+        extra: {
+            ssl: {
+                rejectUnauthorized: false
+            }
+        },
+    }
+}
 
 app.start({
     auth: {
         successRedirectURL: "http://localhost:5000"
     },
-    orm: {
+    orm: ormConfig ? ormConfig : {
         type: "better-sqlite3",
+        synchronize: true,
         database: "db.sqlite",
         // database: ":memory:",
-        synchronize: true,
         // logging: true
     }
 })

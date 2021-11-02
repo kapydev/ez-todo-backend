@@ -70,6 +70,7 @@ user.get('/todos', { preHandler: checkLoggedIn },
         const userTodos = await todoRepo
             .createQueryBuilder('todo')
             .innerJoinAndSelect("todo.workspace", "workspace")
+            .leftJoinAndSelect("todo.assignees","assignees")
             .where("workspace.id IN (:...workspaceIds)", { workspaceIds })
             .getMany()
 

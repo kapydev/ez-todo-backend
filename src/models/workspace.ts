@@ -19,6 +19,17 @@ export const workspace = new EzModel("Workspace", {
     }
 })
 
+//URGENT TODO: Add security rule such that only users in the workspace can access the values
+workspace.get('/:workspaceId/users', async (req) => {
+    const workspaceRepo = workspace.getRepo()
+    const curWorkspace = await workspaceRepo.findOne(
+        req.params['workspaceId'],
+        {
+            relations: ['users']
+        })
+    return curWorkspace
+})
+
 workspace.post('/:workspaceId/add-user/:userId', async (req) => {
     //TODO: Make into single query
     const workspaceRepo = workspace.getRepo()

@@ -1,7 +1,7 @@
 name: Continuous Deploy
 on: [push]
 jobs:
-  deploy:
+  push-code:
     name: Push to EC2 Instance
     runs-on: ubuntu-latest
 
@@ -17,3 +17,5 @@ jobs:
           REMOTE_HOST: ${{secrets.REMOTE_HOST}}
           REMOTE_USER: "ubuntu"
           TARGET: "/home/ubuntu/backend"
+  run-code:
+    name: Execute 
