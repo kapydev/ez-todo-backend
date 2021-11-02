@@ -44,7 +44,7 @@ if (process.env.NODE_ENV === "production") {
 app.start({
     address: "0.0.0.0",
     auth: {
-        successRedirectURL: "http://localhost:5000"
+        successRedirectURL: successRedirect
     },
     orm: ormConfig ? ormConfig : {
         type: "better-sqlite3",
