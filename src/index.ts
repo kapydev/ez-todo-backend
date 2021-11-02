@@ -44,6 +44,9 @@ if (process.env.NODE_ENV === "production") {
 
 app.start({
     address: "0.0.0.0",
+    server: {
+        trustProxy: true
+    },
     auth: {
         successRedirectURL: successRedirect
     },
